@@ -80,12 +80,12 @@ const CommentManager: React.FC<CommentManagerProps> = ({ facebookConfig, onNavig
                 
                 let processedCount = 0;
                 let scanCount = 0;
-
+                console.log(recentPosts)
                 for (const post of recentPosts) {
                     // 2. Lấy comment của từng bài
                     const postComments = await getPostComments(post.id, facebookConfig.accessToken);
                     scanCount += postComments.length;
-
+                    
                     // 3. Lọc comment cần trả lời
                     const newComments = postComments.filter(c => {
                         // Điều kiện 1: Thời gian
